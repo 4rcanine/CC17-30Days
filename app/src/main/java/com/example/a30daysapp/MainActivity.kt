@@ -16,19 +16,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Set up RecyclerView
+
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Generate tips data and set the adapter
+
         val tips = generateTips()
         recyclerView.adapter = TipAdapter(tips)
     }
 
-    // Data class for each dancing tip
+
     data class Tip(val day: String, val title: String, val description: String, val imageRes: Int)
 
-    // Generate the 30 tips for each day
+
     private fun generateTips(): List<Tip> {
         return listOf(
             Tip("Day 1", "Salsa", "Get comfortable with basic salsa steps.", R.drawable.dap1),
@@ -64,11 +64,11 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    // Inner class for the TipAdapter
+
     inner class TipAdapter(private val tips: List<Tip>) :
         RecyclerView.Adapter<TipAdapter.TipViewHolder>() {
 
-        // ViewHolder for each tip item
+
         inner class TipViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val day: TextView = itemView.findViewById(R.id.day)
             val title: TextView = itemView.findViewById(R.id.title)
